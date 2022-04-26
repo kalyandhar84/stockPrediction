@@ -1,0 +1,163 @@
+<html>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px;
+}
+
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,th{
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  height: 60px;
+}
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.button {
+  background-color: #FFFFFF; /* Gray */
+  border: 2px solid black;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.boxclass{
+ background-color: white;
+  width: 500px;
+  height: 200px;
+  border: 3px solid black;
+  padding: 10px;
+  margin: 10px;
+  margin-left: auto;
+  margin-right: auto
+}
+
+</style>
+<br/>
+<h3 style="text-align:center"> Future Stock Predictions</h3>
+<div class="boxclass">
+<label for="stocks">Select Stock Symbol:</label>
+  <select name="stocks" id="stocks" onchange="displayScreen(this)" style="height: 30px;width:150px;">
+           <option value="AAPL">Apple</option>
+           <option value="FB">Facebook</option>
+           <option value="AMZN">Amazon</option>
+           <option value="MSFT">Microsoft</option>
+           <option value="NFLX">Netflix</option>
+  </select>
+<br/>
+<br/>
+<br/>
+<br/>
+<div id="section1" style="text-align:center">
+          <input type="submit" name="submit_button" value="Summary">
+          <input type="submit" name="submit_button" value="ForeCast">
+</div>
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+
+      <img src="/static/images/stock_forecast.jpg"  style="float:left">
+       <img src="/static/images/stock_summary.jpg"  style="float:left">
+<!-- Screen1 UI display Starts-->
+<div id="screen1" class="row" style="display:none">
+  <div class="column" style="background-color:#FFFFFF;">
+    <h2 style="text-align: center">Stock Summary</h2>
+<table>
+  <tr>
+    <th bgcolor="gray">Stats</th>
+    <th bgcolor="gray">Summary</th>
+  </tr>
+  <tr>
+    <td>52 Weeks High</td>
+    <td>$40.00</td>
+  </tr>
+  <tr>
+    <td>52 Weeks Low</td>
+    <td>$70.00</td>
+  </tr>
+  <tr>
+    <td>30 Days High</td>
+    <td>$135.00</td>
+  </tr>
+  <tr>
+    <td>30 Days High</td>
+    <td>$10.00</td>
+  </tr>
+</table>
+  </div>
+  <div class="column" style="background-color:#FFFFFF;">
+    <img src="C:/Users/Siddhant/Desktop/Prasad/image1.png" alt="Image1">
+  </div>
+</div>
+<!-- Screen1 UI display StartsEnd -->
+<!-- Screen2 UI display Starts-->
+<div id="screen2" class="row" style="display:none">
+  <div style="background-color:#FFFFFF;">
+   <h2 style="text-align:center">Forecast Stock predictions</h2>
+    <img class="center" src="C:/Users/Siddhant/Desktop/Prasad/image1.png" alt="Image1">
+  </div>
+</div>
+<!-- Screen2 UI display End-->
+<script type="text/javascript">
+    function displayScreen(stockVal) {
+	  var selectedText = stockVal.options[stockVal.selectedIndex].innerHTML;
+        var selectedValue = stockVal.value;
+	  document.getElementById('summary').style.backgroundColor = 'white';
+	  document.getElementById('forecast').style.backgroundColor = 'white';
+	  document.getElementById('screen1').style.display='none';
+	  document.getElementById('screen2').style.display='none';
+	  if(selectedValue == "Symbol1"){
+		 var show = document.getElementById('section1');
+		 show.style.display='block';
+		 
+        }
+    }
+   
+    function displaySummary() {
+	document.getElementById('screen2').style.display='none';
+	document.getElementById('summary').style.backgroundColor = '#1e90ff';
+	document.getElementById('forecast').style.backgroundColor = 'white';
+	document.getElementById('screen1').style.display='block';
+    }	
+	function displayForecast() {
+	document.getElementById('screen1').style.display='none';
+	document.getElementById('forecast').style.backgroundColor = '#1e90ff';
+      document.getElementById('summary').style.backgroundColor = 'white';
+	document.getElementById('screen2').style.display='block';
+    }	
+
+</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/static/css/main.css">
+	<meta charset="utf-8">
+	<title>Craiglist Analysis</title>
+    
+   
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet"  >
+   
+</head>
+
+<body>
+  
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="/au/">About</a>
+        <a href="/vpa/">Vehicle purchase Analysis</a>
+        <a href="/ucma/">Used Car Market Analysis</a>
+        <a href="/cpp/">Car Price Prediction</a>
+        <a href="/mc/">Manufacturer Comparison</a>
+      </div>
+      <script>
+        /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
+            function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+            }
+
+            /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+            function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            }
+    </script>
+
+      <!-- Use any element to open the sidenav -->
+      <span onclick="openNav()"><img src="/static/images/menu.jpg" width="80" height="80" style="float:left"></span>
+      
+      <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+      <div id="main" style="color: black;">
+       
+        <img src="/static/images/banner.jpg"  width="950" height="200"  style="float:left"><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <p style="float:left">
+          <h2>Project Summary:</h2>
+            Based on current market trends, smart investments are critically important and the need of the hour. In order to invest smartly, we need to be aware of the market fluctuations, and trends and be able to use technology to reap the benefits to the fullest. 
+            Hence, we embark on this journey and decide to create an algorithm for predicting the stock prices based on historical trends with time series forecasting methodology. We have used the yahoo finance python library to get daily stocks data for analysis.
+            TimeSeries forecasting is performed using LSTM and SARIMA models. In the next phase, we will use Python Flask for creating a web interface that will enable users to select the stocks they are interested in and provide forecasts for stock price movement.
+            
+  
+            <h2>Data Collection</h2>
+            A Python library called “yfinance” is used in order to import stock data. In order to keep our project simple, only 5 companies are considered. These 5 companies are 
+            Facebook (FB)
+            Microsoft (MSFT)
+            Amazon (AMZN)
+            Netflix (NFLX)
+            Apple (AAPL)
+            Also, it is noted that some companies have split their stocks over time. Hence, instead of ingesting the daily stock price, the adjusted daily stock price is ingested in order to avoid the effect of stock splits. Figure 1 shows some samples of adjusted prices starting from the year 2015. 
+            
+          <h2>Team:</h2>
+          Kalyan Dhar, Prasad Yacham ,Jugal Shah
+  
+          
+          </p>
+        
+                
+       
+      </div>
+</body>
+</html>
+

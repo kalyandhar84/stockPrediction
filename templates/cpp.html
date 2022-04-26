@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/static/css/main.css">
+	<meta charset="utf-8">
+	<title>Stock Price Analysis</title>
+    
+   
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet"  >
+   
+</head>
+
+<body>
+  
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="/">About</a>
+        <a href="/cpp/">Stock Price Prediction</a>
+      </div>
+      <script>
+        /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
+            function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+            }
+
+            /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+            function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            }
+            
+    </script>
+
+      <!-- Use any element to open the sidenav -->
+      <span onclick="openNav()"><img src="/static/images/menu.jpg" width="42" height="42" style="float:left"></span>
+      
+      <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+      <div id="main" style="align-items: center;" >
+       
+        <img src="/static/images/banner.jpg" width="950" height="200"  style="float:left"><br/>
+        <br/>
+        <br/><br/><br/><br/><br/><br/><br/><br/>
+        <h1>Stock Price Analysis</h1>
+        <label>Please select stock Symbol</label>
+        <div style="align-content: center;">
+        <form method="POST">
+        <label for="manufacturer">Stock:</label>
+        <select name="stock" id="stock">
+           <option value="AAPL">Apple</option>
+           <option value="FB">Facebook</option>
+           <option value="AMZN">Amazon</option>
+           <option value="MSFT">Microsoft</option>
+           <option value="NFLX">Netflix</option>
+        </select>
+       
+      </p>
+      <br/>
+      <div style="color: blue;"><b> {{ p }} </b>
+
+      </div>
+       <input type="hidden" name="text" >
+          <input type="submit" name="submit_button" value="Summary">
+          <input type="submit" name="submit_button" value="ForeCast">
+
+        </form>
+      </div>
+        <p>
+       
+        </p>
+        <img src="" id="image1" width="800" height="600" />
+        <img src="" id="image2" width="800" height="600" />
+
+      <script>
+                    $(function() {
+                var temp="{{ p }}"; 
+                $("#stock").val(temp);
+            });
+            document.getElementById('image1').src = '/static/images/stock_forecast.jpg?'+ Date.now();
+            document.getElementById('image2').src = '/static/images/stock_summary.jpg?'+ Date.now();
+
+            $("#image1").error(function () { 
+              $(this).hide(); 
+              });
+
+              $("#image2").error(function () { 
+              $(this).hide(); 
+              });
+        </script> 
+
+        
+      </div>
+</body>
+</html>
+
