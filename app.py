@@ -42,7 +42,7 @@ def homepage():
 @app.route('/cpp/', methods=['GET', 'POST'])
 def cpp():
     t=""
-    my_path = os.path.dirname(__file__)
+    my_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
     req_type = request.method
     if req_type == 'GET':
         if os.path.exists(my_path + '\\static\\images\\stock_summary.jpg'):
@@ -192,7 +192,7 @@ def get_summary(df_1yr, symbol):
     plt.ylabel('Stock Price', fontsize=13)
     plt.xlabel('Date', fontsize=13)
     plt.title("Stock Price Movement - "+symbol, fontsize=20)
-    my_path = os.path.dirname(__file__) # Figures out the absolute path for you in case your working directory moves around.
+    my_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..')) # Figures out the absolute path for you in case your working directory moves around.
 
     plt.savefig(my_path + '\\static\\images\\stock_summary.jpg')
 
@@ -225,7 +225,7 @@ def ml_modelprocess(df_model, df_future, symbol):
     plt.ylabel('Stock Price', fontsize=13)
     plt.xlabel('Date', fontsize=13)
     plt.title(symbol + " Stock Price Movement with Forecast", fontsize=20)
-    my_path = os.path.dirname(__file__)
+    my_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
     plt.savefig(my_path + '\\static\\images\\stock_forecast.jpg')
 
 
